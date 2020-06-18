@@ -6,7 +6,7 @@ const defaultDescription = ""
 const defaultOGURL = ""
 const defaultOGImage = ""
 
-const Head = props => (
+const Head = (props) => (
   <NextHead>
     <meta charSet="UTF-8" />
     <title>{props.title || ""}</title>
@@ -31,7 +31,6 @@ const Head = props => (
       href="https://fonts.googleapis.com/css?family=Orbitron:400,700&display=swap"
       rel="stylesheet"
     />
-    >
   </NextHead>
 )
 
@@ -39,7 +38,7 @@ Head.propTypes = {
   title: string,
   description: string,
   url: string,
-  ogImage: string
+  ogImage: string,
 }
 
 export default Head
