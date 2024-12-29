@@ -1,20 +1,23 @@
 {
-  "name": "ciocan.dev",
-  "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "start": "next start",
-    "export": "npm run build && next export"
-  },
-  "dependencies": {
-    "next": "^9.1.1",
-    "react": "^16.10.2",
-    "react-dom": "^16.10.2"
-  },
-  "devDependencies": {
-    "@types/node": "^12.7.12",
-    "@types/react": "^16.9.6",
-    "typescript": "^3.6.4",
-    "babel-plugin-inline-react-svg": "^1.1.0"
-  }
+	"name": "ciocan.dev",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro",
+		"lint": "biome lint --write .",
+		"lint:fix": "biome check --write ."
+	},
+	"dependencies": {
+		"@astrojs/tailwind": "^5.1.4",
+		"astro": "^5.1.1",
+		"tailwind-merge": "^2.6.0",
+		"tailwindcss": "^3.4.17"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
+		"typescript": "^5.7.2"
+	}
 }
