@@ -1,10 +1,12 @@
 ---
+import { Icon } from "astro-icon/components";
+
 import ThemeToggle from "@/components/ThemeToggle.astro";
 ---
 
 <header class="mb-6 flex items-center justify-between" transition:name="header">
   <nav class="flex items-center gap-4">
-    <a href="/" class="menu-item">home</a>
+    <a href="/" class="menu-item"><Icon name="lucide:home" /></a>
     <a href="/posts" class="menu-item">posts</a>
     <a href="/projects" class="menu-item">projects</a>
   </nav>

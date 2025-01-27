@@ -4,6 +4,7 @@ import react from "@astrojs/react";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import vercel from "@astrojs/vercel";
+import icon from "astro-icon";
 
 import { SITE_URL } from "./src/consts";
 
@@ -19,7 +20,7 @@ export default defineConfig({
     },
   },
 
-  integrations: [react(), mdx(), sitemap()],
+  integrations: [react(), mdx(), sitemap(), icon()],
   markdown: {
     shikiConfig: {
       themes: {
