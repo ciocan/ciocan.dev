@@ -6,7 +6,7 @@ import sitemap from "@astrojs/sitemap";
 import vercel from "@astrojs/vercel";
 import icon from "astro-icon";
 
-import { SITE_URL } from "./src/consts";
+import { SITE_URL } from "./src/lib/constants";
 
 export default defineConfig({
   site: SITE_URL,

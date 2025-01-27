@@ -1,0 +1,17 @@
+---
+import { Icon } from "astro-icon/components";
+import { SOCIAL_LINKS } from "@/lib/constants";
+---
+
+<div class="flex items-center gap-2">
+  {
+    SOCIAL_LINKS.map((link) => (
+      <a href={link.url} target="_blank" title={link.name}>
+        <Icon
+          name={link.icon}
+          class="size-6 text-muted-foreground dark:text-gray-400"
+        />
+      </a>
+    ))
+  }
+</div>

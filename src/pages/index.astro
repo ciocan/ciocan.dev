@@ -1,6 +1,7 @@
 ---
-import { SITE_DESCRIPTION, SITE_TITLE } from "@/consts";
+import { SITE_DESCRIPTION, SITE_TITLE } from "@/lib/constants";
 import Layout from "@/layouts/Layout.astro";
+import Socials from "@/components/Socials.astro";
 ---
 
 <Layout
@@ -11,5 +12,8 @@ import Layout from "@/layouts/Layout.astro";
   <main class="space-y-4">
     <p>Hi, I'm a software developer and entrepreneur.</p>
     <p>...</p>
+    <section>
+      <p>Reach me on: <Socials /></p>
+    </section>
   </main>
 </Layout>
