@@ -7,14 +7,21 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "lint": "biome lint --write .",
-    "lint:fix": "biome check --write ."
+    "lint": "biome lint .",
+    "lint:fix": "biome check --write .",
+    "fmt": "biome format --write ."
   },
   "dependencies": {
+    "@astrojs/mdx": "^4.0.7",
     "@astrojs/react": "^4.1.6",
+    "@astrojs/rss": "^4.0.11",
+    "@astrojs/sitemap": "^3.2.1",
+    "@astrojs/vercel": "^8.0.4",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
+    "@vercel/analytics": "^1.4.1",
     "astro": "^5.1.9",
+    "clsx": "^2.1.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tailwind-merge": "^2.6.0",

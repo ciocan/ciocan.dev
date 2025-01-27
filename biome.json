@@ -17,9 +17,10 @@
     "ignore": ["node_modules", ".astro"]
   },
   "organizeImports": {
-    "enabled": true
+    "enabled": false
   },
   "linter": {
+    "ignore": ["node_modules", ".astro"],
     "enabled": true,
     "rules": {
       "recommended": true
