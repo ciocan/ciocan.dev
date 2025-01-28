@@ -2,13 +2,25 @@
 import { Icon } from "astro-icon/components";
 
 import ThemeToggle from "@/components/ThemeToggle.astro";
+
+const pathname = new URL(Astro.request.url).pathname;
+const isHome = pathname === "/";
+const isPosts = pathname.startsWith("/posts");
+const isProjects = pathname.startsWith("/projects");
 ---
 
 <header class="mb-6 flex items-center justify-between" transition:name="header">
   <nav class="flex items-center gap-4">
-    <a href="/" class="menu-item"><Icon name="lucide:home" /></a>
-    <a href="/posts" class="menu-item">Posts</a>
-    <a href="/projects" class="menu-item">Projects</a>
+    <a href="/" class:list={["menu-item", { "menu-item-active": isHome }]}>
+      <Icon name="lucide:home" class="size-5" />
+    </a>
+    <a href="/posts" class:list={["menu-item", { "menu-item-active": isPosts }]}
+      >Posts</a
+    >
+    <a
+      href="/projects"
+      class:list={["menu-item", { "menu-item-active": isProjects }]}>Projects</a
+    >
   </nav>
   <ThemeToggle />
 </header>
