@@ -6,7 +6,12 @@ import { SOCIAL_LINKS } from "@/lib/constants";
 <div class="flex items-center gap-2">
   {
     SOCIAL_LINKS.map((link) => (
-      <a href={link.url} target="_blank" title={link.name}>
+      <a
+        href={link.url}
+        target="_blank"
+        title={link.name}
+        class="opacity-70 hover:opacity-100 transition-opacity"
+      >
         <Icon
           name={link.icon}
           class="size-6 text-muted-foreground dark:text-gray-400"

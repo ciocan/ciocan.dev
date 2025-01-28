@@ -1,6 +1,8 @@
 ---
 import { type CollectionEntry } from "astro:content";
 
+import { formatDate } from "@/lib/utils";
+
 type Props = CollectionEntry<"posts">;
 
 const post = Astro.props;
@@ -10,13 +12,15 @@ const { title, date, description } = post.data;
 <li class="p-0 m-0">
   <a
     href={`/posts/${post.slug}`}
-    class="group grid grid-cols-[auto_1fr] gap-1 justify-between items-center no-underline opacity-80 hover:opacity-100 transition-opacity"
+    class="bg-zinc-50 dark:bg-zinc-800 rounded-md p-2 px-4 pb-3 grid grid-cols-[auto_1fr] gap-2 justify-between no-underline opacity-80 hover:opacity-100 transition-opacity"
   >
     <h3 class="font-medium opacity-80 underline underline-offset-4 mt-0 mb-0">
       {title}
     </h3>
-    <span class="opacity-60 place-self-end">
-      {date.toLocaleDateString()}
+    <span
+      class="opacity-60 place-self-end bg-zinc-300 dark:bg-zinc-600 rounded-md px-2 text-xs mb-auto mt-1.5 text-right"
+    >
+      {formatDate(date)}
     </span>
     <p class="text-sm col-span-2 mt-0 mb-0">{description}</p>
   </a>

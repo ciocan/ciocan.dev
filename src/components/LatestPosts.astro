@@ -16,10 +16,10 @@ const posts = collection
 
 <section class="prose dark:prose-invert prose-sm">
   <h2 class="text-lg dark:text-gray-300 font-medium p-0 m-0">Latest posts</h2>
-  <ul class="flex flex-col gap-4 list-none p-0 m-0">
+  <ul class="flex flex-col gap-2 list-none p-0 m-0">
     {posts.map((post) => <PostListItem {...post} />)}
   </ul>
-  <div class="">
+  <div>
     <a
       href="/posts"
       class="underline underline-offset-4 opacity-60 hover:opacity-100 transition-opacity"

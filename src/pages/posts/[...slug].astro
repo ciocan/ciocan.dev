@@ -26,7 +26,9 @@ const { Content } = await post.render();
       <h1 class="mb-5 text-xl font-medium">
         {post.data.title}
       </h1>
-      <span class="font-medium text-zinc-500">
+      <span
+        class="font-medium text-zinc-500 bg-zinc-100 dark:bg-zinc-700 dark:text-zinc-200 rounded-md px-2 py-0.5 mb-auto whitespace-nowrap text-sm"
+      >
         {formatDate(post.data.date)}
       </span>
     </div>
