@@ -1,0 +1,29 @@
+---
+import { getCollection } from "astro:content";
+
+import PostListItem from "@/components/PostListItem.astro";
+
+const collection = await getCollection("posts");
+
+const posts = collection
+  .sort((a, b) => {
+    const dateA = new Date(a.data.date).getTime();
+    const dateB = new Date(b.data.date).getTime();
+    return dateB - dateA;
+  })
+  .slice(0, 2);
+---
+
+<section class="prose dark:prose-invert prose-sm">
+  <h2 class="text-lg dark:text-gray-300 font-medium p-0 m-0">Latest posts</h2>
+  <ul class="flex flex-col gap-4 list-none p-0 m-0">
+    {posts.map((post) => <PostListItem {...post} />)}
+  </ul>
+  <div class="">
+    <a
+      href="/posts"
+      class="underline underline-offset-4 opacity-60 hover:opacity-100 transition-opacity"
+      >View all</a
+    >
+  </div>
+</section>

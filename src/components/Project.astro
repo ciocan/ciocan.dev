@@ -4,7 +4,7 @@ import { type CollectionEntry } from "astro:content";
 type Props = CollectionEntry<"projects">;
 
 const project = Astro.props;
-const { title, year, url } = project.data as Props["data"];
+const { title, year, url } = project.data;
 const { Content } = await project.render();
 ---
 
