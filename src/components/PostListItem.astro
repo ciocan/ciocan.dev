@@ -9,10 +9,12 @@ const post = Astro.props;
 const { title, date, description } = post.data;
 ---
 
-<li class="p-0 m-0">
+<li
+  class="p-0 m-0 hover:bg-zinc-100 dark:hover:bg-zinc-700 bg-zinc-50 dark:bg-zinc-800 rounded-md transition-colors"
+>
   <a
     href={`/posts/${post.slug}`}
-    class="bg-zinc-50 dark:bg-zinc-800 rounded-md p-2 px-4 pb-3 grid grid-cols-[auto_1fr] gap-2 justify-between no-underline opacity-80 hover:opacity-100 transition-opacity"
+    class="p-2 px-4 pb-3 grid grid-cols-[auto_1fr] gap-2 justify-between no-underline opacity-80 hover:opacity-100 transition-opacity"
   >
     <h3 class="font-medium opacity-80 underline underline-offset-4 mt-0 mb-0">
       {title}
