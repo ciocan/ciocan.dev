@@ -1,0 +1,35 @@
+---
+import { type CollectionEntry } from "astro:content";
+
+type Props = CollectionEntry<"projects">;
+
+const project = Astro.props;
+const { title, year, url } = project.data as Props["data"];
+const { Content } = await project.render();
+---
+
+<li
+  class="group flex gap-4 font-medium bg-zinc-100 dark:bg-zinc-800 dark:text-zinc-100 p-4 rounded-lg"
+>
+  <span class="flex flex-col gap-1 w-full max-w-[110px]">
+    {
+      url ? (
+        <a
+          href={url}
+          target="_blank"
+          class="dark:hover:text-zinc-300 hover:text-zinc-500 font-medium"
+        >
+          {title}
+        </a>
+      ) : (
+        <span class="font-medium">{title}</span>
+      )
+    }
+    <span class="text-nowrap text-xs text-zinc-500 font-mono">
+      {year}
+    </span>
+  </span>
+  <article class="project-description">
+    <Content />
+  </article>
+</li>

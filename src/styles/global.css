@@ -28,3 +28,12 @@
 @utility menu-item {
   @apply font-medium text-zinc-500 hover:text-zinc-900 hover:underline dark:hover:text-zinc-100;
 }
+
+@utility project-description {
+  @apply text-sm text-zinc-500 prose-sm;
+  @apply prose-h1:text-base prose-h1:font-normal dark:prose-h1:text-zinc-300 prose-h1:text-zinc-800;
+  @apply prose-h2:text-base prose-h2:font-normal dark:prose-h2:text-zinc-300 prose-h2:text-zinc-800;
+  @apply prose-strong:text-zinc-700 dark:prose-strong:text-zinc-300;
+  @apply prose-a:text-zinc-500 dark:prose-a:text-zinc-300;
+  @apply prose-a:hover:text-zinc-900 dark:prose-a:hover:text-zinc-100;
+}

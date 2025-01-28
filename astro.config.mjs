@@ -7,6 +7,7 @@ import vercel from "@astrojs/vercel";
 import icon from "astro-icon";
 
 import { SITE_URL } from "./src/lib/constants";
+import { externalAnchorPlugin } from "./src/lib/utils";
 
 export default defineConfig({
   site: SITE_URL,
@@ -22,6 +23,7 @@ export default defineConfig({
 
   integrations: [react(), mdx(), sitemap(), icon()],
   markdown: {
+    remarkPlugins: [externalAnchorPlugin],
     shikiConfig: {
       themes: {
         light: "catppuccin-latte",

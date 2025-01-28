@@ -1,0 +1,19 @@
+---
+import { getCollection } from "astro:content";
+
+import { SITE_DESCRIPTION, SITE_TITLE } from "@/lib/constants";
+import Layout from "@/layouts/Layout.astro";
+import Project from "@/components/Project.astro";
+
+const collection = await getCollection("projects");
+const projects = collection.sort((a, b) => a.data.order - b.data.order);
+const title = `Projects | ${SITE_TITLE}`;
+---
+
+<Layout title={title} description={SITE_DESCRIPTION}>
+  <main>
+    <ul class="flex flex-col gap-2 list-none p-0 m-0">
+      {projects.map((project) => <Project {...project} />)}
+    </ul>
+  </main>
+</Layout>
