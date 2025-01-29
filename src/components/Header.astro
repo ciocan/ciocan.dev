@@ -11,7 +11,11 @@ const isProjects = pathname.startsWith("/projects");
 
 <header class="mb-6 flex items-center justify-between" transition:name="header">
   <nav class="flex items-center gap-4">
-    <a href="/" class:list={["menu-item", { "menu-item-active": isHome }]}>
+    <a
+      href="/"
+      class:list={["menu-item", { "menu-item-active": isHome }]}
+      aria-label="Home"
+    >
       <Icon name="lucide:home" class="size-5" />
     </a>
     <a href="/posts" class:list={["menu-item", { "menu-item-active": isPosts }]}
