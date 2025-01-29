@@ -23,6 +23,8 @@
     font-weight: var(--shiki-dark-font-weight) !important;
     text-decoration: var(--shiki-dark-text-decoration) !important;
   }
+
+  @apply prose-p:text-base;
 }
 
 @utility menu-item {
@@ -30,12 +32,12 @@
 }
 
 @utility menu-item-active {
-  @apply text-zinc-900 font-bold dark:text-zinc-100;
+  @apply text-zinc-900 dark:text-zinc-100;
 }
 
 @utility project-description {
-  @apply text-sm text-zinc-500 prose-sm;
-  @apply prose-h1:text-base prose-h1:font-normal dark:prose-h1:text-zinc-300 prose-h1:text-zinc-800;
+  @apply text-sm text-zinc-500;
+  @apply prose-h1:text-lg prose-h1:font-medium dark:prose-h1:text-zinc-300 prose-h1:text-zinc-800;
   @apply prose-h2:text-base prose-h2:font-normal dark:prose-h2:text-zinc-300 prose-h2:text-zinc-800;
   @apply prose-strong:text-zinc-700 dark:prose-strong:text-zinc-300;
   @apply prose-a:text-zinc-500 dark:prose-a:text-zinc-300;

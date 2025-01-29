@@ -19,12 +19,12 @@ const title = `Projects | ${SITE_TITLE}`;
 
 <Layout title={title} description={SITE_DESCRIPTION}>
   <main>
-    <h2 class="text-xl font-bold">Software</h2>
-    <ul class="flex flex-col gap-2 list-none p-0 m-0">
+    <h2>Software</h2>
+    <ul class="flex flex-col gap-4 list-none p-0 m-0">
       {softwareProjects.map((project) => <Project {...project} />)}
     </ul>
-    <h2 class="text-xl font-bold">Other creative work</h2>
-    <ul class="flex flex-col gap-2 list-none p-0 m-0">
+    <h2>Other creative work</h2>
+    <ul class="flex flex-col gap-4 list-none p-0 m-0">
       {otherProjects.map((project) => <Project {...project} />)}
     </ul>
   </main>

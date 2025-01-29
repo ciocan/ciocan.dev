@@ -13,7 +13,7 @@ const title = `Posts | ${SITE_TITLE}`;
 ---
 
 <Layout title={title} description={SITE_DESCRIPTION}>
-  <main class="prose dark:prose-invert prose-sm max-w-none mt-8">
+  <main class="mt-8">
     <ul class="flex flex-col gap-4 list-none p-0 m-0">
       {posts.map((post) => <PostListItem {...post} />)}
     </ul>
