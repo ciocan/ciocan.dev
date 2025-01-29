@@ -1,13 +1,11 @@
 ---
-title: "SICAP.ai"
-description: "SICAP.ai is a search engine for public procurement contracts for Romania."
+name: "SICAP.ai"
+title: "A search engine that helps track how the Romanian government spends public money through procurement contracts. It indexes over 32 million contracts worth €200+ billion."
 url: "https://sicap.ai"
 year: "2020-present"
 type: "software"
 order: 1
 ---
-
-# SICAP.ai is a search engine for public procurement contracts for Romania.
 
 It's a project that I started in 2020 in the context of the pandemic to understand how the Romanian goverment spent the money.
 I created a scrapper to get the data from the goverment portal and it is indexed in Elasticsearch.

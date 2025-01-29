@@ -1,13 +1,11 @@
 ---
-title: "Artsflow"
-description: "Artsflow was a platform booking marketplace for artists to book and publish art events."
+name: "Artsflow"
+title: "A two-sided marketplace for artists to discover, book and host art events, workshops and classes."
 url: "https://github.com/artsflow"
 year: "2020-2021"
 type: "software"
 order: 3
 ---
-
-# Artsflow was a platform booking marketplace for artists to book and publish art events.
 
 The platform was built in partnership with James Cropper's [Creative Minds](https://creativeminds.art/) franchise business. We created a two-sided marketplace where artists could both book existing art events and publish their own events for others to attend.
 

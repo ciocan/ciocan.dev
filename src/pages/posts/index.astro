@@ -14,7 +14,7 @@ const title = `Posts | ${SITE_TITLE}`;
 
 <Layout title={title} description={SITE_DESCRIPTION}>
   <main class="mt-8">
-    <ul class="flex flex-col gap-4 list-none p-0 m-0">
+    <ul class="flex flex-col gap-2 list-none p-0 m-0">
       {posts.map((post) => <PostListItem {...post} />)}
     </ul>
   </main>
