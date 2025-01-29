@@ -40,6 +40,8 @@
   @apply prose-h1:text-lg prose-h1:font-medium dark:prose-h1:text-zinc-300 prose-h1:text-zinc-800;
   @apply prose-h2:text-base prose-h2:font-normal dark:prose-h2:text-zinc-300 prose-h2:text-zinc-800;
   @apply prose-strong:text-zinc-700 dark:prose-strong:text-zinc-300;
-  @apply prose-a:text-zinc-500 dark:prose-a:text-zinc-300;
+  @apply prose-a:text-zinc-700 dark:prose-a:text-zinc-300;
   @apply prose-a:hover:text-zinc-900 dark:prose-a:hover:text-zinc-100;
+  @apply prose-p:text-zinc-700 prose-p:dark:text-zinc-400;
+  @apply prose-li:text-zinc-700 prose-li:dark:text-zinc-400;
 }
