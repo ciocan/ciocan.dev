@@ -26,6 +26,10 @@
 
   html {
     scrollbar-gutter: stable;
+    background-color: white;
+  }
+  html.dark {
+    background-color: #18181b; /* zinc-900 */
   }
 
   ::view-transition-old(root),

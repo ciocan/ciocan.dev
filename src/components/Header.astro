@@ -2,29 +2,48 @@
 import { Icon } from "astro-icon/components";
 
 import ThemeToggle from "@/components/ThemeToggle.astro";
-
-const pathname = new URL(Astro.request.url).pathname;
-const isHome = pathname === "/";
-const isProjects = pathname.startsWith("/projects");
 ---
 
 <header
   class="mb-6 flex items-center justify-between prose-lg"
-  transition:name="header"
-  transition:animate="none"
+  transition:persist
 >
-  <nav class="flex items-center gap-4">
+  <nav id="main-nav" class="flex items-center gap-4">
     <a
       href="/"
-      class:list={["menu-item", { "menu-item-active": isHome }]}
+      class="menu-item"
       aria-label="Home"
+      data-path="/"
     >
       <Icon name="lucide:home" class="size-5" />
     </a>
     <a
       href="/projects"
-      class:list={["menu-item", { "menu-item-active": isProjects }]}>Projects</a
+      class="menu-item"
+      data-path="/projects">Projects</a
     >
   </nav>
   <ThemeToggle />
 </header>
+
+<script is:inline>
+  function updateActiveNav() {
+    var path = window.location.pathname;
+    var links = document.querySelectorAll("#main-nav a[data-path]");
+    for (var i = 0; i < links.length; i++) {
+      var link = links[i];
+      var linkPath = link.getAttribute("data-path");
+      var isActive = linkPath === "/"
+        ? path === "/"
+        : path.startsWith(linkPath);
+      link.classList.toggle("menu-item-active", isActive);
+    }
+  }
+
+  updateActiveNav();
+
+  if (!window.__navListener) {
+    document.addEventListener("astro:after-swap", updateActiveNav);
+    window.__navListener = true;
+  }
+</script>
