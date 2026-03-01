@@ -24,6 +24,10 @@
     text-decoration: var(--shiki-dark-text-decoration) !important;
   }
 
+  html {
+    scrollbar-gutter: stable;
+  }
+
   @apply prose-p:text-base;
 }
 
