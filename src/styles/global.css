@@ -37,11 +37,11 @@
 }
 
 @utility menu-item {
-  @apply font-mono text-sm text-zinc-400 dark:text-zinc-500 hover:text-zinc-950 dark:hover:text-zinc-100 transition-colors;
+  @apply font-mono text-sm text-zinc-400 dark:text-zinc-500 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors;
 }
 
 @utility menu-item-active {
-  @apply text-zinc-950 dark:text-zinc-100;
+  @apply text-emerald-600 dark:text-emerald-400 underline decoration-emerald-500/30 dark:decoration-emerald-400/30 underline-offset-4;
 }
 
 @utility project-description {
@@ -50,7 +50,21 @@
   @apply prose-h2:text-base prose-h2:font-normal prose-h2:text-zinc-950 dark:prose-h2:text-zinc-100;
   @apply prose-strong:text-zinc-950 dark:prose-strong:text-zinc-100;
   @apply prose-a:text-zinc-950 dark:prose-a:text-zinc-100 prose-a:underline prose-a:underline-offset-2;
-  @apply prose-a:hover:text-zinc-600 dark:prose-a:hover:text-zinc-400;
+  @apply prose-a:hover:text-emerald-600 dark:prose-a:hover:text-emerald-400;
   @apply prose-p:text-zinc-600 prose-p:dark:text-zinc-400;
   @apply prose-li:text-zinc-600 prose-li:dark:text-zinc-400;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@utility animate-blink {
+  animation: blink 1s step-end infinite;
 }
