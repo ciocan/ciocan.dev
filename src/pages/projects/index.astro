@@ -7,12 +7,8 @@ import Project from "@/components/Project.astro";
 
 const collection = await getCollection("projects");
 const projects = collection.sort((a, b) => a.data.order - b.data.order);
-const softwareProjects = projects.filter(
-  (project) => project.data.type === "software",
-);
-const otherProjects = projects.filter(
-  (project) => project.data.type !== "software",
-);
+const softwareProjects = projects.filter((project) => project.data.type === "software");
+const otherProjects = projects.filter((project) => project.data.type !== "software");
 
 const title = `Projects | ${SITE_TITLE}`;
 ---

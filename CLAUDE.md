@@ -48,3 +48,4 @@ bun run fmt      # Format code (biome format --write .)
 - **Formatter/Linter:** Biome (not ESLint/Prettier for JS/TS). Double quotes, 2-space indent, 100-char line width.
 - **TypeScript:** Strict mode. All components use TypeScript.
 - **Components:** Astro components (.astro) with props destructured in frontmatter.
+- **After every code change**, run `bun run lint` and fix lint issues and `bun run fmt` to format.
