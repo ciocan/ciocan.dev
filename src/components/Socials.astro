@@ -14,7 +14,10 @@ import { SOCIAL_LINKS } from "@/lib/constants";
       >
         <Icon
           name={link.icon}
-          class="size-6 text-muted-foreground dark:text-gray-400"
+          class:list={[
+            "text-muted-foreground dark:text-gray-400",
+            link.icon === "simple-icons:substack" ? "size-5" : "size-6",
+          ]}
         />
       </a>
     ))

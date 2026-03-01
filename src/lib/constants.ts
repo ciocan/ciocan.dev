@@ -14,13 +14,13 @@ export const SOCIAL_LINKS = [
     icon: "mdi:linkedin",
   },
   {
-    name: "Instagram",
-    url: "https://www.instagram.com/ciocan",
-    icon: "mdi:instagram",
+    name: "Substack",
+    url: "https://ciocan.substack.com",
+    icon: "simple-icons:substack",
   },
   {
     name: "Email",
-    url: "mailto:hello@ciocan.dev",
+    url: "mailto:radu@ciocan.dev",
     icon: "mdi:email",
   },
 ];
