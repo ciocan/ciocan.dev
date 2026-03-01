@@ -32,23 +32,8 @@
   html.dark {
     --page-bg: #0a0a0a;
   }
-  @media (prefers-color-scheme: dark) {
-    html:not(.dark) {
-      --page-bg: #0a0a0a;
-    }
-  }
 
   @apply prose-p:text-base;
-}
-
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation: none;
-  mix-blend-mode: normal;
-}
-
-::view-transition {
-  background-color: var(--page-bg, #fafafa);
 }
 
 @utility menu-item {

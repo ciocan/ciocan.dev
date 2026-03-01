@@ -18,7 +18,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const { title, description, image = "/static/blog-placeholder.png", className } = Astro.props;
 ---
 
-<html lang="en" transition:animate="none">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -37,7 +37,6 @@ const { title, description, image = "/static/blog-placeholder.png", className } 
           var el = document.documentElement;
           el.classList.toggle("dark", isDark);
           el.style.colorScheme = isDark ? "dark" : "light";
-          el.style.backgroundColor = isDark ? "#0a0a0a" : "#fafafa";
         }
         applyTheme();
         if (!window.__themeListeners) {
@@ -45,27 +44,6 @@ const { title, description, image = "/static/blog-placeholder.png", className } 
             var isDark = getTheme() === "dark";
             e.newDocument.documentElement.classList.toggle("dark", isDark);
             e.newDocument.documentElement.style.colorScheme = isDark ? "dark" : "light";
-            e.newDocument.documentElement.style.backgroundColor = isDark ? "#0a0a0a" : "#fafafa";
-
-            // Disable CSS transitions during swap to prevent flash
-            // when dark class is briefly toggled (astro#8711)
-            var css = document.createElement("style");
-            css.appendChild(
-              document.createTextNode(
-                "*,*::before,*::after{-webkit-transition:none!important;-moz-transition:none!important;-o-transition:none!important;-ms-transition:none!important;transition:none!important}"
-              )
-            );
-            e.newDocument.head.appendChild(css);
-            // Remove after the transition frame
-            document.addEventListener(
-              "astro:after-swap",
-              function () {
-                requestAnimationFrame(function () {
-                  css.remove();
-                });
-              },
-              { once: true }
-            );
           });
           document.addEventListener("astro:after-swap", applyTheme);
           window.__themeListeners = true;
@@ -111,7 +89,7 @@ const { title, description, image = "/static/blog-placeholder.png", className } 
     <ClientRouter />
   </head>
   <body
-    class="font-sans text-zinc-950 antialiased bg-[#fafafa] dark:bg-[#0a0a0a] dark:text-zinc-100"
+    class="font-sans text-zinc-950 antialiased bg-(--page-bg) dark:text-zinc-100"
   >
     <div
       class={cn(
@@ -120,7 +98,7 @@ const { title, description, image = "/static/blog-placeholder.png", className } 
       )}
     >
       <Header />
-      <main transition:animate="none">
+      <main>
         <slot />
       </main>
     </div>
