@@ -28,6 +28,12 @@
     scrollbar-gutter: stable;
   }
 
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+  }
+
   @apply prose-p:text-base;
 }
 

@@ -69,7 +69,9 @@ const { title, description, image = "/static/blog-placeholder.png", className } 
       )}
     >
       <Header />
-      <slot />
+      <main transition:name="content" transition:animate="fade">
+        <slot />
+      </main>
     </div>
   </body>
 </html>
