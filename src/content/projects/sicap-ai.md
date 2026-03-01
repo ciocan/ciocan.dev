@@ -1,32 +1,20 @@
 ---
 name: "SICAP.ai"
-title: "A search engine that helps track how the Romanian government spends public money through procurement contracts. It indexes over 32 million contracts worth €200+ billion."
+title: "An open-source search engine indexing 32M+ Romanian public procurement contracts worth over €200 billion."
 url: "https://sicap.ai"
 year: "2020-present"
 type: "software"
 order: 1
 ---
 
-It's a project that I started in 2020 in the context of the pandemic to understand how the Romanian goverment spent the money.
-I created a scrapper to get the data from the goverment portal and it is indexed in Elasticsearch.
+I started SICAP.ai in 2020 to answer a simple question: where does the Romanian government spend public money?
 
-It grew organically by SEO and word of mouth to this day where more than 100k people use it every month.
-The target audience is mixed between investigative journalists, business owners, and people who want to understand how the goverment spent the money.
+I built a scraper to pull data from the government's procurement portal and indexed it all in Elasticsearch. Five years later, over 100k people use it every month — investigative journalists chasing stories, businesses scouting opportunities, and citizens tracking public spending. It grew entirely through SEO and word of mouth.
 
-**A few challenges of this project:**
+The hard parts: managing an Elasticsearch cluster on Docker Swarm, making sense of poorly documented government data, and working around an unreliable source portal that needs constant retry logic.
 
-- Managing an Elasticsearch cluster on Docker Swarm is not easy.
-- I had to learn what the data means because is poorly documented.
-- The goverment portal is not very reliable, so I had to create a retry mechanism to get the data.
+The long-term goal is training a model on this data to predict tender outcomes and flag potential fraud.
 
-The end goal is to manage to train a custom model on this data to predict the outcome of a tender or to spot fraud or corruption. (I'm still working on this)
+All code for the [scraper](https://github.com/ciocan/sicap-parser) and the [website](https://github.com/ciocan/sicap.ai) is open source on GitHub.
 
-All code for [scrapper](https://github.com/ciocan/sicap-parser) and the [website](https://github.com/ciocan/sicap.ai) is open source and available on GitHub.
-
-## Technologies used:
-
-- Next.js, Tailwind, Shadcn
-- Elasticsearch on Docker Swarm
-- Vercel, Turso
-
-*Another small spin-off from this project is [SICAP PNRR](https://pnrr.sicap.ai) which is a [evidence.dev](https://evidence.dev) app to showcase the PNRR (Romania's recovery and resilience plan) spending.*
+A spin-off from this project is [SICAP PNRR](https://pnrr.sicap.ai) — an [evidence.dev](https://evidence.dev) app visualising Romania's recovery and resilience plan spending.
