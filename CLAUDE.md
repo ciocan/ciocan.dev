@@ -26,7 +26,7 @@ bun run fmt      # Format code (biome format --write .)
 **Content Collections:** Defined in `src/content/config.ts` with Zod schemas. One collection:
 - `projects/` — Portfolio entries with name, title, url, year, type, order
 
-**Layout:** Single `src/layouts/Layout.astro` handles SEO (OG tags, Twitter cards, canonical URLs), font preloading (Geist), dark mode init script, and Vercel analytics.
+**Layout:** Single `src/layouts/Layout.astro` handles SEO (OG tags, Twitter cards, canonical URLs), font preloading (Geist), dark mode init script.
 
 **Styling:** Tailwind CSS 4 with `@tailwindcss/vite` plugin. Custom utilities (`menu-item`, `menu-item-active`, `project-description`) in `src/styles/global.css`. Dark mode via class on `<html>` element.
 

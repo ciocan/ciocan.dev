@@ -51,8 +51,8 @@
   @apply prose-strong:text-zinc-950 dark:prose-strong:text-zinc-100;
   @apply prose-a:text-zinc-950 dark:prose-a:text-zinc-100 prose-a:underline prose-a:underline-offset-2;
   @apply prose-a:hover:text-emerald-600 dark:prose-a:hover:text-emerald-400;
-  @apply prose-p:text-zinc-600 prose-p:dark:text-zinc-400;
-  @apply prose-li:text-zinc-600 prose-li:dark:text-zinc-400;
+  @apply prose-p:text-zinc-600 dark:prose-p:text-zinc-400;
+  @apply prose-li:text-zinc-600 dark:prose-li:text-zinc-400;
 }
 
 @keyframes blink {

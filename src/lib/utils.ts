@@ -8,14 +8,23 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+const siteOrigin = new URL(SITE_URL).origin;
+
 export function externalAnchorPlugin() {
   // biome-ignore lint/suspicious/noExplicitAny: missing types
   return (tree: any) => {
-    visit(tree, "link", (node) => {
-      if (/^(https?):\/\/[^\s/$.?#].[^\s]*$/i.test(node.url) && !node.url.includes(SITE_URL)) {
-        node.data ??= {};
-        node.data.hProperties ??= {};
-        node.data.hProperties.target = "_blank";
+    visit(tree, "element", (node) => {
+      if (node.tagName !== "a") return;
+      const href = node.properties?.href;
+      if (typeof href !== "string") return;
+      try {
+        const url = new URL(href, SITE_URL);
+        if (url.origin !== siteOrigin) {
+          node.properties.target = "_blank";
+          node.properties.rel = "noopener";
+        }
+      } catch {
+        // ignore malformed URLs
       }
     });
   };

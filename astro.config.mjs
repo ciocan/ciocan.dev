@@ -40,16 +40,11 @@ export default defineConfig({
 
   vite: {
     plugins: [tailwindcss()],
-    resolve: {
-      alias: {
-        "@/": "./src/*",
-      },
-    },
   },
 
   integrations: [react(), mdx(), sitemap(), icon(), posthogProxy()],
   markdown: {
-    remarkPlugins: [externalAnchorPlugin],
+    rehypePlugins: [externalAnchorPlugin],
     shikiConfig: {
       themes: {
         light: "catppuccin-latte",
@@ -58,9 +53,5 @@ export default defineConfig({
     },
   },
 
-  adapter: vercel({
-    webAnalytics: {
-      enabled: true,
-    },
-  }),
+  adapter: vercel(),
 });
