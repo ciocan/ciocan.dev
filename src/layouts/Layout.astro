@@ -2,7 +2,6 @@
 import { ClientRouter } from "astro:transitions";
 import Header from "@/components/Header.astro";
 import PostHog from "@/components/PostHog.astro";
-import Analytics from "@vercel/analytics/astro";
 import { cn } from "@/lib/utils";
 import "@/styles/global.css";
 
@@ -102,7 +101,6 @@ const { title, description, image = "/static/blog-placeholder.png", className } 
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
-    <Analytics />
     <PostHog />
     <ClientRouter />
   </head>
