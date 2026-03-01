@@ -37,7 +37,7 @@ const { title, description, image = "/static/blog-placeholder.png", className } 
           var el = document.documentElement;
           el.classList.toggle("dark", isDark);
           el.style.colorScheme = isDark ? "dark" : "light";
-          el.style.backgroundColor = isDark ? "#18181b" : "";
+          el.style.backgroundColor = isDark ? "#0a0a0a" : "#fafafa";
         }
         applyTheme();
         if (!window.__themeListeners) {
@@ -45,7 +45,7 @@ const { title, description, image = "/static/blog-placeholder.png", className } 
             var isDark = getTheme() === "dark";
             e.newDocument.documentElement.classList.toggle("dark", isDark);
             e.newDocument.documentElement.style.colorScheme = isDark ? "dark" : "light";
-            e.newDocument.documentElement.style.backgroundColor = isDark ? "#18181b" : "";
+            e.newDocument.documentElement.style.backgroundColor = isDark ? "#0a0a0a" : "#fafafa";
 
             // Disable CSS transitions during swap to prevent flash
             // when dark class is briefly toggled (astro#8711)
@@ -111,16 +111,16 @@ const { title, description, image = "/static/blog-placeholder.png", className } 
     <ClientRouter />
   </head>
   <body
-    class="font-sans text-zinc-900 antialiased dark:bg-zinc-900 dark:text-zinc-200"
+    class="font-sans text-zinc-950 antialiased bg-[#fafafa] dark:bg-[#0a0a0a] dark:text-zinc-100"
   >
     <div
       class={cn(
-        "mx-auto p-4 prose prose-sm dark:prose-invert prose-zinc max-w-3xl py-8",
+        "mx-auto px-6 prose prose-sm dark:prose-invert prose-zinc max-w-2xl py-16 sm:py-24",
         className,
       )}
     >
       <Header />
-      <main transition:animate="fade">
+      <main transition:animate="none">
         <slot />
       </main>
     </div>

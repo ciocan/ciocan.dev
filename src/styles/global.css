@@ -26,15 +26,15 @@
 
   html {
     scrollbar-gutter: stable;
-    --page-bg: white;
+    --page-bg: #fafafa;
     background-color: var(--page-bg);
   }
   html.dark {
-    --page-bg: #18181b; /* zinc-900 */
+    --page-bg: #0a0a0a;
   }
   @media (prefers-color-scheme: dark) {
     html:not(.dark) {
-      --page-bg: #18181b;
+      --page-bg: #0a0a0a;
     }
   }
 
@@ -48,24 +48,24 @@
 }
 
 ::view-transition {
-  background-color: var(--page-bg, white);
+  background-color: var(--page-bg, #fafafa);
 }
 
 @utility menu-item {
-  @apply font-medium text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 hover:underline dark:hover:text-zinc-100;
+  @apply font-mono text-sm text-zinc-400 dark:text-zinc-500 hover:text-zinc-950 dark:hover:text-zinc-100 transition-colors;
 }
 
 @utility menu-item-active {
-  @apply text-zinc-900 dark:text-zinc-100;
+  @apply text-zinc-950 dark:text-zinc-100;
 }
 
 @utility project-description {
-  @apply text-sm text-zinc-500;
-  @apply prose-h1:text-lg prose-h1:font-medium dark:prose-h1:text-zinc-300 prose-h1:text-zinc-800;
-  @apply prose-h2:text-base prose-h2:font-normal dark:prose-h2:text-zinc-300 prose-h2:text-zinc-800;
-  @apply prose-strong:text-zinc-700 dark:prose-strong:text-zinc-300;
-  @apply prose-a:text-zinc-700 dark:prose-a:text-zinc-300;
-  @apply prose-a:hover:text-zinc-900 dark:prose-a:hover:text-zinc-100;
-  @apply prose-p:text-zinc-700 prose-p:dark:text-zinc-400;
-  @apply prose-li:text-zinc-700 prose-li:dark:text-zinc-400;
+  @apply text-sm text-zinc-600 dark:text-zinc-400;
+  @apply prose-h1:text-lg prose-h1:font-medium prose-h1:text-zinc-950 dark:prose-h1:text-zinc-100;
+  @apply prose-h2:text-base prose-h2:font-normal prose-h2:text-zinc-950 dark:prose-h2:text-zinc-100;
+  @apply prose-strong:text-zinc-950 dark:prose-strong:text-zinc-100;
+  @apply prose-a:text-zinc-950 dark:prose-a:text-zinc-100 prose-a:underline prose-a:underline-offset-2;
+  @apply prose-a:hover:text-zinc-600 dark:prose-a:hover:text-zinc-400;
+  @apply prose-p:text-zinc-600 prose-p:dark:text-zinc-400;
+  @apply prose-li:text-zinc-600 prose-li:dark:text-zinc-400;
 }

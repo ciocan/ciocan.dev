@@ -15,13 +15,21 @@ const title = `Projects | ${SITE_TITLE}`;
 
 <Layout title={title} description={SITE_DESCRIPTION}>
   <main>
-    <h2>Software</h2>
-    <div class="space-y-4">
-      {softwareProjects.map((project) => <Project {...project} />)}
-    </div>
-    <h2>Other creative work</h2>
-    <div class="space-y-4">
-      {otherProjects.map((project) => <Project {...project} />)}
-    </div>
+    <section class="mb-16">
+      <h2 class="font-mono text-xs uppercase tracking-widest text-zinc-400 dark:text-zinc-600 mb-0">
+        # software
+      </h2>
+      <div>
+        {softwareProjects.map((project) => <Project {...project} />)}
+      </div>
+    </section>
+    <section>
+      <h2 class="font-mono text-xs uppercase tracking-widest text-zinc-400 dark:text-zinc-600 mb-0">
+        # other work
+      </h2>
+      <div>
+        {otherProjects.map((project) => <Project {...project} />)}
+      </div>
+    </section>
   </main>
 </Layout>

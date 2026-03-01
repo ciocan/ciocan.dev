@@ -9,21 +9,29 @@ import Socials from "@/components/Socials.astro";
   description={SITE_DESCRIPTION}
   className="flex flex-col justify-center"
 >
-  <main class="space-y-12">
+  <main class="space-y-16">
+    <section class="space-y-8">
+      <h1
+        class="font-mono text-2xl sm:text-3xl font-bold tracking-tight text-zinc-950 dark:text-zinc-100"
+      >
+        Radu Ciocan<span class="animate-pulse">_</span>
+      </h1>
+      <div class="space-y-4">
+        <p>
+          Developer, founder, former photographer — based in London.
+        </p>
+        <p>
+          I specialise in local-first AI, semantic search, and turning messy
+          public datasets into tools people actually use. Currently building at
+          the European Anti-Fraud Office and running SICAP.ai.
+        </p>
+        <p class="text-zinc-400 dark:text-zinc-500">
+          25 years of shipping software. Still learning.
+        </p>
+      </div>
+    </section>
     <section>
-      <p>
-        Hi, I'm Radu Ciocan — developer, founder, former photographer — based
-        in London.
-      </p>
-      <p>
-        I specialise in local-first AI, semantic search, and turning messy
-        public datasets into tools people actually use. Currently building at
-        the European Anti-Fraud Office and running SICAP.ai.
-      </p>
-      <p>25 years of shipping software. Still learning.</p>
-      <section>
-        <p>You can reach me on: <Socials /></p>
-      </section>
+      <Socials />
     </section>
   </main>
 </Layout>

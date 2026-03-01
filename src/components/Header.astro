@@ -5,23 +5,23 @@ import ThemeToggle from "@/components/ThemeToggle.astro";
 ---
 
 <header
-  class="mb-6 flex items-center justify-between prose-lg"
+  class="mb-16 flex items-center justify-between"
   transition:persist
   transition:animate="none"
 >
-  <nav id="main-nav" class="flex items-center gap-4">
+  <nav id="main-nav" class="flex items-center gap-6">
     <a
       href="/"
       class="menu-item"
       aria-label="Home"
       data-path="/"
     >
-      <Icon name="lucide:home" class="size-5" />
+      ~
     </a>
     <a
       href="/projects"
       class="menu-item"
-      data-path="/projects">Projects</a
+      data-path="/projects">/projects</a
     >
   </nav>
   <ThemeToggle />
