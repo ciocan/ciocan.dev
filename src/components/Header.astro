@@ -5,7 +5,6 @@ import ThemeToggle from "@/components/ThemeToggle.astro";
 
 const pathname = new URL(Astro.request.url).pathname;
 const isHome = pathname === "/";
-const isPosts = pathname.startsWith("/posts");
 const isProjects = pathname.startsWith("/projects");
 ---
 
@@ -21,9 +20,6 @@ const isProjects = pathname.startsWith("/projects");
     >
       <Icon name="lucide:home" class="size-5" />
     </a>
-    <a href="/posts" class:list={["menu-item", { "menu-item-active": isPosts }]}
-      >Posts</a
-    >
     <a
       href="/projects"
       class:list={["menu-item", { "menu-item-active": isProjects }]}>Projects</a

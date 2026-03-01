@@ -8,14 +8,6 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function formatDate(date: Date) {
-  return date.toLocaleDateString(undefined, {
-    year: "2-digit",
-    month: "short",
-    day: "numeric",
-  });
-}
-
 export function externalAnchorPlugin() {
   // biome-ignore lint/suspicious/noExplicitAny: missing types
   return (tree: any) => {
