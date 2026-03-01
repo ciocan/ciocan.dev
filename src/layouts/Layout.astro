@@ -24,6 +24,24 @@ const { title, description, image = "/static/blog-placeholder.png", className } 
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
 
+    <style is:inline>
+      ::view-transition-old(root) {
+        animation: fade-out 0.024s ease-out forwards;
+      }
+      ::view-transition-new(root) {
+        animation: fade-in 0.024s ease-in 0.024s forwards;
+        opacity: 0;
+      }
+      @keyframes fade-out {
+        from { opacity: 1; }
+        to { opacity: 0; }
+      }
+      @keyframes fade-in {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+    </style>
+
     <script is:inline>
       (function () {
         function getTheme() {
