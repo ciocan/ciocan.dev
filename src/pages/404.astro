@@ -1,0 +1,56 @@
+---
+import { SITE_TITLE } from "@/lib/constants";
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout
+  title={`404 | ${SITE_TITLE}`}
+  description="Page not found"
+  className="flex flex-col justify-center"
+>
+  <div class="font-mono text-sm leading-relaxed space-y-6">
+    <div>
+      <p>
+        <span class="text-emerald-500 dark:text-emerald-400">$</span>
+        <span class="text-zinc-950 dark:text-zinc-100"> cd </span>
+        <span class="text-zinc-500 dark:text-zinc-400" id="attempted-path">/unknown</span>
+      </p>
+      <p class="text-red-400 dark:text-red-400">
+        bash: cd: <span id="error-path">/unknown</span>: No such file or directory
+      </p>
+    </div>
+
+    <div>
+      <p>
+        <span class="text-emerald-500 dark:text-emerald-400">$</span>
+        <span class="text-zinc-950 dark:text-zinc-100"> ls </span>
+        <span class="text-zinc-500 dark:text-zinc-400">~/</span>
+      </p>
+      <p class="flex gap-8 mt-1">
+        <a
+          href="/"
+          class="text-emerald-500 dark:text-emerald-400 hover:underline underline-offset-4"
+        >~</a>
+        <a
+          href="/projects"
+          class="text-emerald-500 dark:text-emerald-400 hover:underline underline-offset-4"
+        >/projects</a>
+      </p>
+    </div>
+
+    <p>
+      <span class="text-emerald-500 dark:text-emerald-400">$</span>
+      <span class="animate-blink text-emerald-500 dark:text-emerald-400">_</span>
+    </p>
+  </div>
+</Layout>
+
+<script is:inline>
+  (function () {
+    var path = window.location.pathname;
+    var pathEl = document.getElementById("attempted-path");
+    var errorEl = document.getElementById("error-path");
+    if (pathEl) pathEl.textContent = path;
+    if (errorEl) errorEl.textContent = path;
+  })();
+</script>

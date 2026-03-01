@@ -1,0 +1,49 @@
+---
+import { Icon } from "astro-icon/components";
+
+import ThemeToggle from "@/components/ThemeToggle.astro";
+---
+
+<header
+  class="mb-16 flex items-center justify-between"
+  transition:persist
+>
+  <nav id="main-nav" class="flex items-center gap-6">
+    <a
+      href="/"
+      class="menu-item"
+      aria-label="Home"
+      data-path="/"
+    >
+      ~
+    </a>
+    <a
+      href="/projects"
+      class="menu-item"
+      data-path="/projects">/projects</a
+    >
+  </nav>
+  <ThemeToggle />
+</header>
+
+<script is:inline>
+  function updateActiveNav() {
+    var path = window.location.pathname;
+    var links = document.querySelectorAll("#main-nav a[data-path]");
+    for (var i = 0; i < links.length; i++) {
+      var link = links[i];
+      var linkPath = link.getAttribute("data-path");
+      var isActive = linkPath === "/"
+        ? path === "/"
+        : path.startsWith(linkPath);
+      link.classList.toggle("menu-item-active", isActive);
+    }
+  }
+
+  updateActiveNav();
+
+  if (!window.__navListener) {
+    document.addEventListener("astro:after-swap", updateActiveNav);
+    window.__navListener = true;
+  }
+</script>

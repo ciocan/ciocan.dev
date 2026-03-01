@@ -1,0 +1,31 @@
+---
+import { type CollectionEntry, render } from "astro:content";
+
+type Props = CollectionEntry<"projects">;
+
+const project = Astro.props;
+const { name, title, year, url } = project.data;
+const { Content } = await render(project);
+---
+
+<div class="py-4 mb-4 border-t border-zinc-200 dark:border-zinc-800 -mx-3 px-3 rounded-md transition-colors hover:bg-zinc-100/50 dark:hover:bg-zinc-800/30">
+  <div class="flex items-baseline justify-between gap-4 mb-3">
+    <a
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="font-mono text-base font-semibold text-zinc-950 dark:text-zinc-100 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors no-underline"
+    >
+      {name}
+    </a>
+    <span class="text-nowrap text-xs text-zinc-400 dark:text-zinc-500 font-mono">
+      {year}
+    </span>
+  </div>
+  <p class="text-sm text-zinc-600 dark:text-zinc-400 font-medium mb-4">
+    {title}
+  </p>
+  <article class="project-description">
+    <Content />
+  </article>
+</div>

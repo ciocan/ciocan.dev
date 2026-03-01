@@ -1,23 +1,41 @@
 {
-	"name": "ciocan.dev",
-	"type": "module",
-	"version": "0.0.1",
-	"scripts": {
-		"dev": "astro dev",
-		"build": "astro build",
-		"preview": "astro preview",
-		"astro": "astro",
-		"lint": "biome lint --write .",
-		"lint:fix": "biome check --write ."
-	},
-	"dependencies": {
-		"@astrojs/tailwind": "^5.1.4",
-		"astro": "^5.1.1",
-		"tailwind-merge": "^2.6.0",
-		"tailwindcss": "^3.4.17"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "1.9.4",
-		"typescript": "^5.7.2"
-	}
+  "name": "ciocan.dev",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro build && astro preview",
+    "astro": "astro",
+    "lint": "biome lint .",
+    "lint:fix": "biome check --write .",
+    "fmt": "biome format --write ."
+  },
+  "dependencies": {
+    "@astrojs/mdx": "4.3.13",
+    "@astrojs/react": "4.4.2",
+    "@astrojs/sitemap": "3.7.0",
+    "@astrojs/vercel": "9.0.4",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "astro": "5.18.0",
+    "astro-icon": "^1.1.5",
+    "clsx": "^2.1.1",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "tailwind-merge": "^3.5.0",
+    "tailwindcss-animate": "^1.0.7",
+    "unist-util-visit": "^5.1.0",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.4.4",
+    "@iconify-json/lucide": "^1.2.95",
+    "@iconify-json/mdi": "^1.2.3",
+    "@iconify-json/simple-icons": "^1.2.71",
+    "@tailwindcss/typography": "^0.5.19",
+    "@tailwindcss/vite": "^4.2.1",
+    "tailwindcss": "^4.2.1",
+    "typescript": "^5.9.3"
+  }
 }

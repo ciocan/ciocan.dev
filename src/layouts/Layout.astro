@@ -1,13 +1,119 @@
-<!doctype html>
+---
+import { ClientRouter } from "astro:transitions";
+import Header from "@/components/Header.astro";
+import PostHog from "@/components/PostHog.astro";
+import { cn } from "@/lib/utils";
+import "@/styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  className?: string;
+}
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const { title, description, image, className } = Astro.props;
+---
+
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>ciocan.dev</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+
+    <style is:inline>
+      ::view-transition-old(root) {
+        animation: fade-out 0.024s ease-out forwards;
+      }
+      ::view-transition-new(root) {
+        animation: fade-in 0.024s ease-in 0.024s forwards;
+        opacity: 0;
+      }
+      @keyframes fade-out {
+        from { opacity: 1; }
+        to { opacity: 0; }
+      }
+      @keyframes fade-in {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+    </style>
+
+    <script is:inline>
+      (function () {
+        function getTheme() {
+          return (
+            localStorage.getItem("theme") || "dark"
+          );
+        }
+        function applyTheme() {
+          var isDark = getTheme() === "dark";
+          var el = document.documentElement;
+          el.classList.toggle("dark", isDark);
+          el.style.colorScheme = isDark ? "dark" : "light";
+        }
+        applyTheme();
+        if (!window.__themeListeners) {
+          document.addEventListener("astro:before-swap", function (e) {
+            var isDark = getTheme() === "dark";
+            e.newDocument.documentElement.classList.toggle("dark", isDark);
+            e.newDocument.documentElement.style.colorScheme = isDark ? "dark" : "light";
+          });
+          document.addEventListener("astro:after-swap", applyTheme);
+          window.__themeListeners = true;
+        }
+      })();
+    </script>
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <link
+      rel="preload"
+      href="/fonts/geist-variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/geist-mono-variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <link rel="canonical" href={canonicalURL} />
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    {image && <meta property="og:image" content={new URL(image, Astro.url)} />}
+    <meta name="twitter:card" content={image ? "summary_large_image" : "summary"} />
+    <meta name="twitter:url" content={Astro.url} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {image && <meta name="twitter:image" content={new URL(image, Astro.url)} />}
+
+    <PostHog />
+    <ClientRouter />
+  </head>
+  <body
+    class="font-sans text-zinc-950 antialiased bg-(--page-bg) dark:text-zinc-100"
+  >
+    <div
+      class={cn(
+        "mx-auto px-6 prose prose-sm dark:prose-invert prose-zinc max-w-2xl py-16 sm:py-24",
+        className,
+      )}
+    >
+      <Header />
+      <slot />
+    </div>
+  </body>
 </html>

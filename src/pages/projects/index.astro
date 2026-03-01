@@ -1,0 +1,35 @@
+---
+import { getCollection } from "astro:content";
+
+import { SITE_DESCRIPTION, SITE_TITLE } from "@/lib/constants";
+import Layout from "@/layouts/Layout.astro";
+import Project from "@/components/Project.astro";
+
+const collection = await getCollection("projects");
+const projects = collection.sort((a, b) => a.data.order - b.data.order);
+const softwareProjects = projects.filter((project) => project.data.type === "software");
+const otherProjects = projects.filter((project) => project.data.type !== "software");
+
+const title = `Projects | ${SITE_TITLE}`;
+---
+
+<Layout title={title} description={SITE_DESCRIPTION}>
+  <main>
+    <section class="mb-16">
+      <h2 class="font-mono text-sm uppercase tracking-widest text-zinc-500 dark:text-zinc-500 mb-4">
+        # software
+      </h2>
+      <div>
+        {softwareProjects.map((project) => <Project {...project} />)}
+      </div>
+    </section>
+    <section>
+      <h2 class="font-mono text-sm uppercase tracking-widest text-zinc-500 dark:text-zinc-500 mb-4">
+        # other work
+      </h2>
+      <div>
+        {otherProjects.map((project) => <Project {...project} />)}
+      </div>
+    </section>
+  </main>
+</Layout>

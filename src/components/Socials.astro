@@ -1,0 +1,25 @@
+---
+import { Icon } from "astro-icon/components";
+import { SOCIAL_LINKS } from "@/lib/constants";
+---
+
+<div class="flex items-center gap-4">
+  {
+    SOCIAL_LINKS.map((link) => (
+      <a
+        href={link.url}
+        target="_blank"
+        title={link.name}
+        rel="noopener noreferrer"
+        class="text-zinc-400 dark:text-zinc-500 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+      >
+        <Icon
+          name={link.icon}
+          class:list={[
+            link.icon === "simple-icons:substack" ? "size-5" : "size-6",
+          ]}
+        />
+      </a>
+    ))
+  }
+</div>
