@@ -22,6 +22,57 @@ const { title, description, image = "/static/blog-placeholder.png", className } 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+
+    <script is:inline>
+      (function () {
+        function getTheme() {
+          return (
+            localStorage.getItem("theme") ||
+            (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
+          );
+        }
+        function applyTheme() {
+          var isDark = getTheme() === "dark";
+          var el = document.documentElement;
+          el.classList.toggle("dark", isDark);
+          el.style.colorScheme = isDark ? "dark" : "light";
+          el.style.backgroundColor = isDark ? "#18181b" : "";
+        }
+        applyTheme();
+        if (!window.__themeListeners) {
+          document.addEventListener("astro:before-swap", function (e) {
+            var isDark = getTheme() === "dark";
+            e.newDocument.documentElement.classList.toggle("dark", isDark);
+            e.newDocument.documentElement.style.colorScheme = isDark ? "dark" : "light";
+            e.newDocument.documentElement.style.backgroundColor = isDark ? "#18181b" : "";
+
+            // Disable CSS transitions during swap to prevent flash
+            // when dark class is briefly toggled (astro#8711)
+            var css = document.createElement("style");
+            css.appendChild(
+              document.createTextNode(
+                "*,*::before,*::after{-webkit-transition:none!important;-moz-transition:none!important;-o-transition:none!important;-ms-transition:none!important;transition:none!important}"
+              )
+            );
+            e.newDocument.head.appendChild(css);
+            // Remove after the transition frame
+            document.addEventListener(
+              "astro:after-swap",
+              function () {
+                requestAnimationFrame(function () {
+                  css.remove();
+                });
+              },
+              { once: true }
+            );
+          });
+          document.addEventListener("astro:after-swap", applyTheme);
+          window.__themeListeners = true;
+        }
+      })();
+    </script>
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
 
@@ -75,19 +126,3 @@ const { title, description, image = "/static/blog-placeholder.png", className } 
     </div>
   </body>
 </html>
-
-<script is:inline>
-  function getTheme() {
-    return localStorage.getItem("theme") ||
-      (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-  }
-
-  document.documentElement.classList.toggle("dark", getTheme() === "dark");
-
-  if (!window.__themeListeners) {
-    document.addEventListener("astro:before-swap", function (e) {
-      e.newDocument.documentElement.classList.toggle("dark", getTheme() === "dark");
-    });
-    window.__themeListeners = true;
-  }
-</script>
