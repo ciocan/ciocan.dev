@@ -4,7 +4,7 @@ title: "A procurement intelligence platform that helps SMEs find and win public 
 url: "https://sicap.pro"
 year: "2024-present"
 type: "software"
-order: 2
+order: 3
 ---
 
 After years of running SICAP.ai, I saw a gap: businesses needed more than search — they needed workflow tools to actually win tenders. I partnered with a domain expert in public procurement and we built SICAP.pro.

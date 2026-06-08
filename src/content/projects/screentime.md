@@ -4,7 +4,7 @@ title: "A street photography exhibition documenting Londoners' quiet obsession w
 url: "https://screentime.gallery"
 year: "2019"
 type: "photography"
-order: 4
+order: 5
 ---
 
 When I moved to London in 2015, I started shooting street photography. Over time, one pattern kept appearing in my frames: people absorbed in their screens — on the tube, crossing the road, sitting in parks.
