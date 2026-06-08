@@ -4,7 +4,7 @@ title: "An open-source search engine indexing 32M+ Romanian public procurement c
 url: "https://sicap.ai"
 year: "2020-present"
 type: "software"
-order: 1
+order: 2
 ---
 
 I started SICAP.ai in 2020 to answer a simple question: where does the Romanian government spend public money?
@@ -13,8 +13,10 @@ I built a scraper to pull data from the government's procurement portal and inde
 
 The hard parts: managing an Elasticsearch cluster on Docker Swarm, making sense of poorly documented government data, and working around an unreliable source portal that needs constant retry logic.
 
+It also ships an MCP server, so AI assistants like Claude can query the full database in a conversation — search contracts, look up companies and contracting authorities, and pull spending totals directly.
+
 The long-term goal is training a model on this data to predict tender outcomes and flag potential fraud.
 
-All code for the [scraper](https://github.com/ciocan/sicap-parser) and the [website](https://github.com/ciocan/sicap.ai) is open source on GitHub.
+All code for the [website](https://github.com/ciocan/sicap.ai) is open source on GitHub.
 
 A spin-off from this project is [SICAP PNRR](https://pnrr.sicap.ai) — an [evidence.dev](https://evidence.dev) app visualising Romania's recovery and resilience plan spending.

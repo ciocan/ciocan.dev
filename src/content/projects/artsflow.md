@@ -4,7 +4,7 @@ title: "A two-sided marketplace for artists to discover, book and host art event
 url: "https://github.com/artsflow"
 year: "2020-2021"
 type: "software"
-order: 3
+order: 4
 ---
 
 Built in partnership with James Cropper's [Creative Minds](https://creativeminds.art/) franchise. Artists could both book existing art events and publish their own for others to attend.
